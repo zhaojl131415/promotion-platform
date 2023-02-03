@@ -1,0 +1,28 @@
+server:
+  port: 8090
+#数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.222.108.29:3306/promotion?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: promotion
+    password: 2CBaTwnS8Z2W4ScM
+
+
+#mybatis-plus配置
+mybatis-plus:
+  configuration:
+    #sql日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #开启驼峰命名匹配
+    map-underscore-to-camel-case: true
+    #mapper文件
+  mapper-locations: classpath:mapper/**/*.xml,classpath:mapper/*.xml
+  #数据库实体类的包全路径，方便在mapper.xml中不许使用实体类的全路径，写类名就行（不区分大小写）
+#  type-aliases-package: com.zhuang.mp.entity
+  global-config:
+    db-config:
+      #逻辑删除
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      logic-delete-field: deleted
